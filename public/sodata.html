@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html ng-app='MyApp'>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+
+<link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="/stylesheets/style3.css">
+<link rel="stylesheet" href="/stylesheets/style2.css">
+<link rel="stylesheet" href="/stylesheets/nav.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+   <script src="js/jquery/jquery.min.js"></script>
+   <script src="js/jquery/jquery-1.7.1.js"></script>
+   <script src="js/jquery/jquery-ui.js"></script>
+  <!-- <script src="js/massautocomplete.js"></script>-->
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="js/bootstrap/bootstrap.min.js" ></script>
+<style>
+  
+  .show-grid [class^=col-] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #eee;
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid #ddd;
+    border: 1px solid rgba(86,61,124,.2);
+
+
+}
+	
+</style> 
+
+    <script src='js/angular/angular.js'></script>
+    <script src='js/angular/angular-route.js'></script>
+    <script src='js/angular/angular-resource.min.js'></script>
+    <script src='js/angular/angular-cookies.min.js'></script>
+    <script src='js/angular/angular-sanitize.js'></script>
+    <script src='bower_components/d3/d3.js'></script>
+    <script src='bower_components/nvd3/nv.d3.js'></script>
+    <script src='bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js'></script>
+	  <script src='bower_components/angular-nvd3-master/dist/angular-nvd3.js'></script>
+     <script src='bower_components/highcharts-ng-master/dist/highcharts-ng.js'></script>
+		<script src='bower_components/highcharts-ng-master/dist/highcharts.js'></script>
+		<script src='http://code.highcharts.com/highcharts-3d.js'></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/HomeController.js"></script>
+    <script src="js/angular/angular-animate.js"></script>
+    <script src="js/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+
+<script src='bower_components/angular-socket-io/socket.js'></script>
+<!--script src="bower_components/nvd3/angularjs-nvd3-directives.js"></script>
+<script src="../../bower_components/nvd3/components/d3/d3.js"></script>
+<script src="../../bower_components/nvd3/nvd3/nv.d3.js"></script-->
+</head>
+<body ng-controller="SalesOrderController" ng-init="getwarehouseorders(null)" >
+<div class="superheading2">Sales Orders</div>
+				<table class="fixed-header table-responsive sales-table">
+					<thead>
+						<tr>
+							<th><b>WH/Store</th>
+							<th><b>Order ID</th>
+							<th><b>Customer Ref #</th>
+							<th><b>Customer</th>
+							<th><b>Status</th>
+							<th><b>Partial Ship</th>
+							<th><b>Order Date</th>
+							<th><b>Order Total</th>
+							<th><b>Carrier</th>
+							<th><b>Service Level</th>
+						</tr>
+					</thead>
+					<tbody>						
+						    <tr ng-repeat="transaction in salesorder | orderBy:'instance.Facility_Name'| orderBy:'instance.Order_ID'" ng-mouseover="displayorderline(transaction.instance.Order_ID)" 
+						    	ng-style="transaction.instance.myStyle">
+								<td style="text-align:center;">{{transaction.instance.Facility_Name}}-{{transaction.instance.Facility_Description}}</td>
+								<td style="text-align:center;"><a ng-click = "gotoordertransactions(transaction.instance.Order_ID)"><b>{{transaction.instance.Order_ID}}</a></td>
+								<td style="text-align:center;">{{transaction.instance.CUST_ORDER_NBR}}</td>
+								<td style="text-align:center;">{{transaction.instance.Customer_ID}}</td>
+								<td style="text-align:center;">{{transaction.instance.Status}}</td>
+								<td style="text-align:center;">{{transaction.instance.Partial_Ship}}</td>
+								<td style="text-align:center;">{{transaction.instance.Order_Created}}</td>	
+								<td style="text-align:center;">{{transaction.instance.Order_Total}}</td>
+								<td style="text-align:center;">{{transaction.instance.Carrier}}</td>
+								<td style="text-align:center;">{{transaction.instance.Service_Level}}</td>
+							</tr>
+					</tbody>
+				</table>
+		<!--	</div>-->
+		</div>
+		<div id="scroll-section1">
+		<!--	<div id="credit" class="element-bottomshadow reading-box"> -->
+				<div class="superheading2"> Sales Order Lines</div>
+				<table class="fixed-header table-condensed order-line">
+					<thead>
+						<tr>
+							<th><b>Order ID</th>
+							<th><b>Item</th>
+							<th><b>Order Qty</th>
+							<th><b>Shipped Qty</th>
+							<th><b>Status</th>
+							<th><b>Shipped Date</th>
+							<th><b>Promise Date</th>
+							<th><b>Modified Date</th>
+							<th><b>Unit Price</th>
+							<th><b>Tracking No</th>
+							<!-- <th><b>Bk Order No</th> -->
+						</tr>
+					</thead>
+					<tbody>				
+						    <tr ng-repeat="transaction in order_line_item |orderBy:'instance.Order_ID'">
+								<td style="text-align:center;">{{selectedorderid}}</td>
+								<td style="text-align:center;"><a ng-click = "gotoorderlinetransactions(transaction.Item_ID)"><b>{{transaction.Item_ID}}</b></td>
+								<td style="text-align:center;">{{transaction.Ordered_QTY}}</td>
+								<td style="text-align:center;">{{transaction.Shipped_Qty}}</td>
+								<td style="text-align:center;">{{transaction.Order_line_Status}}</td>
+								<td style="text-align:center;">{{transaction.ActShipmentDate}}</td>	
+								<td style="text-align:center;">{{transaction.Est_Shipment_Date}}</td>
+								<td style="text-align:center;">{{transaction.Order_Line_Modified}}</td>
+								<td style="text-align:center;">{{transaction.Unit_Price}}</td>
+								<td style="text-align:center;">{{transaction.Tracking_Number}}</td>
+								
+							</tr>
+					</tbody>
+				</table>
+		<!--	</div> -->
+		</div>
+		</body>
+		</html>

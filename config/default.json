@@ -1,0 +1,22 @@
+{
+  "database": {
+    "name": "WCWarehouseInventory",
+    "uri": "mongodb://172.31.0.5/WCWarehouseInventory",
+    "options": {
+              "host": "172.31.0.5",
+              "pool": { "maxConnections": 5, "maxIdleTime": 30},
+              "logging": false
+               }
+  },
+  "node_server_port":3306,
+  "inventory_service_ip":"localhost",
+  "inventory_service_port":3406,
+  "salesorder_service_ip":"localhost",
+  "salesorder_service_port":3506,
+  "dashboard_service_ip":"localhost",
+  "dashboard_service_port":3606,
+  "ldap": {
+    "name": "ldapclient",
+    "url": "ldap://127.0.0.1:389"
+  }    
+}

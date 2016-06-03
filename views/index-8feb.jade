@@ -1,0 +1,90 @@
+doctype html
+html(lang='en', ng-app='MyApp')
+	head
+		title Wipro Connected Warehouse
+		script(src='js/jquery/jquery.min.js')
+		script(src='js/angular/angular.js')
+		script(src='js/angular/angular-route.js')
+		script(src='js/angular/angular-resource.min.js')
+		script(src='js/angular/angular-cookies.min.js')
+		script(src='js/angular/angular-sanitize.js')
+		script(src='bower_components/d3/d3.js')
+		script(src='bower_components/nvd3/nv.d3.js')
+		script(src='bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js')
+		script(src='bower_components/angular-nvd3-master/dist/angular-nvd3.js')
+		script(src='bower_components/highcharts-ng-master/dist/highcharts-ng.js')
+		script(src='bower_components/highcharts-ng-master/dist/highcharts.js')
+		script(src='http://code.highcharts.com/highcharts-3d.js')
+		script(src='js/bootstrap/bootstrap.min.js')
+		script(src='js/jquery/jquery-1.7.1.js')
+		script(src='js/jquery/jquery-ui.js')
+		script(src='js/massautocomplete.js')
+		script(src='js/app.js')
+		script(src='js/services.js')
+		script(src='js/directives.js')
+		script(src='js/controllers.js')
+		script(src='js/HomeController.js')
+		script(src='js/angular/angular-animate.js')
+		script(src='js/bootstrap/ui-bootstrap-tpls-0.12.0.js')
+		script(src='bower_components/nvd3/angularjs-nvd3-directives.js')
+		script(src='../../bower_components/nvd3/components/d3/d3.js')
+		script(src='../../bower_components/nvd3/nvd3/nv.d3.js')
+		script(src='bower_components/angular-socket-io/socket.js')
+		script(src='js/jquery/jquery.btechco.excelexport.js')
+		script(src='js/jquery/jquery.base64.js')				
+		link(rel='stylesheet', href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+		link(rel='stylesheet', href='http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css')
+		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+		link(rel='stylesheet', href='bower_components/nvd3/nv.d3.css')
+		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css')
+
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/style3.css')
+		link(rel='stylesheet', href='/stylesheets/style2.css')
+		link(rel='stylesheet', href='/stylesheets/nav.css')
+
+		
+		link(rel='images', href='/images/coming.png')
+		
+	body(ng-controller="MainController")
+	div
+		
+		div.right-block
+			div.nav.navbar.top-menu
+				div.navbar-header
+					a(href='/', ng-mouseover='showNavbar()')
+						span.glyphicon.glyphicon-home Home
+					label.title-style Wipro Connected Warehouse
+					label.tag User - {{user.name}}
+					a(href='/login')
+						span.glyphicon.glyphicon-log-out Logout
+
+
+										
+			.right-content(ng-view='',ng-mouseover = 'hideNavbar()')
+		.left-menu 
+			.left-nav(ng-controller='MenuController')
+				.site-nav
+					ul
+						li
+							a(href='/') 
+								span.glyphicon.glyphicon-home Home
+									
+					ul
+								li(ng-repeat='menu in tutorialmenu')
+									div(ng-click='showHideSubmenu(menu)')
+										a(ng-click='hideTutorials()', href='/#/{{menu.label}}') {{menu.label}}
+									div(ng-if='menu.submenu && menu.submenu.length', data-menu='{{menu.label}}', ng-show='menu.showsubmenu')
+										ul(class="submenu")
+											li(ng-repeat='submenu in menu.submenu')
+												a(ng-click='hideTutorials()', href='/#/Dashboard/{{submenu}}') {{submenu}}
+									div(ng-if='menu.lang && menu.lang.length', data-menu='{{menu.label}}', ng-show='menu.showsubmenu')
+										ul(class="lang")
+											li(ng-repeat='lang in menu.lang')
+												a(ng-click='hideTutorials()', href='/#/Dashboard/{{lang.label}}'){{lang.label}}
+									div(ng-if='menu.searchmenu && menu.searchmenu.length', data-menu='{{menu.label}}', ng-show='menu.showsubmenu')
+										ul(class="lang")
+											li(ng-repeat='searchmenu in menu.searchmenu')
+												a(ng-click='hideTutorials()', href='/#/{{searchmenu.label}}'){{searchmenu.label}}			
+	
+					

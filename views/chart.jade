@@ -1,0 +1,56 @@
+doctype html
+html(lang='en', ng-app='MyApp')
+	head
+		title Real Time Visualisation
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+		script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.js')
+		script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.js')
+		script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-resource.min.js')
+		script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-cookies.min.js')
+		script(src='bower_components/d3/d3.js')
+		script(src='bower_components/nvd3/nv.d3.js')
+		script(src='bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js')
+		script(src='//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+		script(src='//cdn.jsdelivr.net/jquery.slick/1.3.7/slick.min.js')
+		script(src='js/app.js')
+		script(src='js/services.js')
+		script(src='js/directives.js')
+		script(src='js/controllers.js')
+		//script(src='/socket.io/socket.io.js')
+		link(rel='stylesheet', href='//cdn.jsdelivr.net/jquery.slick/1.3.7/slick.css')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+		link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css')
+		link(rel='stylesheet', href='bower_components/nvd3/nv.d3.css')
+	body(ng-controller='AppController')
+	div
+		header
+			h1 
+				button.logout.pull-right(ng-click='Logout()')
+					i.glyphicon.glyphicon-log-out.icon-large
+		div#leftMenu(ng-controller='MenuController')
+			div.menu-group
+				div.menu-heading
+					a(ng-click='toggleCategories()' href='/')
+						| Categories
+						i.glyphicon.glyphicon-arrow-down.pull-right
+				div#collapseCategory
+					div(ng-show='showcategories')
+						div(ng-repeat="item in categories")
+							span.btn(ng-click='setSelected($index)') {{item.name}}
+							div(ng-show='iscategoryselected[$index]')
+								div.btn.SubCategory(ng-repeat="sub in totalsubcategories|filter:byCategory(item.id)" ng-click="changeSubsCategory(sub)") {{sub.name}}																	
+			div.menu-group
+				div.menu-heading
+					a(href='' ng-click='toggleDashboard()')
+						| Dashboard
+			div.menu-group
+				div.menu-heading
+					a(href='' ng-click='toggleCharts()')
+						| Charts
+		.maincontent-right
+			div(ng-view='')
+			
+			
+					
+

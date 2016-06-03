@@ -1,0 +1,57 @@
+doctype html
+html(lang='en', ng-app='MyApp')
+	head
+		title Wipro Connected Warehouse
+		script(src='js/jquery/jquery.min.js')
+		script(src='js/angular/angular.js')
+		script(src='js/angular/angular-route.js')
+		script(src='js/angular/angular-resource.min.js')
+		script(src='js/angular/angular-cookies.min.js')
+		script(src='js/angular/angular-sanitize.js')
+		script(src='bower_components/d3/d3.js')
+		script(src='bower_components/nvd3/nv.d3.js')
+		script(src='bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js')
+		script(src='js/bootstrap/bootstrap.min.js')
+		script(src='js/jquery/jquery-1.7.1.js')
+		script(src='js/jquery/jquery-ui.js')
+		script(src='js/massautocomplete.js')
+		script(src='js/app.js')
+		script(src='js/services.js')
+		script(src='js/directives.js')
+		script(src='js/controllers.js')
+		script(src='js/angular/angular-animate.js')
+		script(src='js/bootstrap/ui-bootstrap-tpls-0.12.0.js')
+		script(src='bower_components/nvd3/angularjs-nvd3-directives.js')
+		script(src='../../bower_components/nvd3/components/d3/d3.js')
+		script(src='../../bower_components/nvd3/nvd3/nv.d3.js')
+		script(src='bower_components/angular-socket-io/socket.js')
+		link(rel='stylesheet', href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+		link(rel='stylesheet', href='http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css')
+
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/nav.css')
+		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+		link(rel='stylesheet', href='bower_components/nvd3/nv.d3.css')
+		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css')
+		
+		link(rel='images', href='/images/coming.png')
+		
+	body(ng-controller="MainController")
+	div
+		div.nav.navbar.top-menu
+			div.navbar-header
+				button#nav-toggle.navbar-toggle(type='button', data-toggle='collapse', data-target='#main-nav')
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand.scrol	Connected Warehouse							
+		.left-menu
+			.left-nav(ng-controller='MenuController')
+				.site-nav
+					ul
+								li
+									a(ng-click='hideTutorials()', ng-repeat='menu in tutorialmenu', href='/#/{{menu}}') {{menu}}
+									
+		.right-content(ng-view='')
+

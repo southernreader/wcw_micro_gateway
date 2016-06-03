@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html ng-app='MyApp'>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+
+<link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="/stylesheets/style3.css">
+<link rel="stylesheet" href="/stylesheets/style2.css">
+<link rel="stylesheet" href="/stylesheets/nav.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+   <script src="js/jquery/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="js/bootstrap/bootstrap.min.js" ></script>
+<style>
+  
+  .show-grid [class^=col-] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #eee;
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid #ddd;
+    border: 1px solid rgba(86,61,124,.2);
+
+
+}
+	
+</style> 
+
+    <script src='js/angular/angular.js'></script>
+    <script src='js/angular/angular-route.js'></script>
+    <script src='js/angular/angular-resource.min.js'></script>
+    <script src='js/angular/angular-cookies.min.js'></script>
+    <script src='js/angular/angular-sanitize.js'></script>
+    <script src='bower_components/d3/d3.js'></script>
+    <script src='bower_components/nvd3/nv.d3.js'></script>
+    <script src='bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js'></script>
+	  <script src='bower_components/angular-nvd3-master/dist/angular-nvd3.js'></script>
+     <script src='bower_components/highcharts-ng-master/dist/highcharts-ng.js'></script>
+		<script src='bower_components/highcharts-ng-master/dist/highcharts.js'></script>
+		<script src='http://code.highcharts.com/highcharts-3d.js'></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/HomeController.js"></script>
+    <script src="js/angular/angular-animate.js"></script>
+    <script src="js/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+
+<script src='bower_components/angular-socket-io/socket.js'></script>
+<!--script src="bower_components/nvd3/angularjs-nvd3-directives.js"></script>
+<script src="../../bower_components/nvd3/components/d3/d3.js"></script>
+<script src="../../bower_components/nvd3/nvd3/nv.d3.js"></script-->
+</head>
+<body ng-controller="InventoryController" ng-init="getwarehouseinventory(null)">
+<div>
+<table id="table-responsive">
+		<!--	<div id="scroll-section">-->
+				<table id="invtbl" class="table-condensed fixed-header1 inventory-table">
+					<thead>
+						<tr>
+							<th><b>WH/Store</th>
+							<th><b>Item Description</th>
+							<th><b>SOH</th>
+							<th><b>Available</th>
+							<th><b>Hold</th>
+							<th><b>Damaged</th>
+							<th><b>QA</th>
+							<th><b>Alloc</th>
+							<th><b>RCV Stage</th>
+							<th><b>In Transit</th>
+						</tr>
+					</thead>
+					<tbody>			
+						  <!--  <tr ng-repeat="transaction in inventory" ng-style={{transaction.instance.myStyle}}> -->
+								<tr ng-repeat="transaction in inventory  | orderBy:'instance.Facility_Name'" ng-style={{transaction.instance.myStyle}}>
+								<td style="text-align:left"><b>{{transaction.instance.Facility_Name}}-{{transaction.instance.Facility_Description}}</td>
+								<td style="text-align:left"><b>{{transaction.instance.Item_ID}}-{{transaction.instance.Item_Description}}</td>
+								<td style="text-align:left">
+									<a>
+										<b>{{transaction.instance.SOH}} 
+									</a>
+								</td>
+								<td style="text-align:left"><u><a href="invdet.html" ng-click="gototransactions(transaction.instance.Facility_Name,transaction.instance.Item_ID,transaction.instance.Status[0].Status)"><b>{{transaction.instance.Status[0].Qty}}</a></u></td>
+								<td style="text-align:left"><u><a href="invdet.html" ng-click="gototransactions(transaction.instance.Facility_Name,transaction.instance.Item_ID,transaction.instance.Status[5].Status)"><b>{{transaction.instance.Status[5].Qty}}</a></u></td>
+								<td style="text-align:left"><u><a href="invdet.html" ng-click="gototransactions(transaction.instance.Facility_Name,transaction.instance.Item_ID,transaction.instance.Status[1].Status)"><b>{{transaction.instance.Status[1].Qty}}</a></u></td>
+								<td style="text-align:left"><u><a href="invdet.html" ng-click="gototransactions(transaction.instance.Facility_Name,transaction.instance.Item_ID,transaction.instance.Status[3].Status)"><b>{{transaction.instance.Status[3].Qty}}</a></u></td>
+								<td style="text-align:left"><u><a href="invdet.html" ng-click="gototransactions(transaction.instance.Facility_Name,transaction.instance.Item_ID,transaction.instance.Status[4].Status)"><b>{{transaction.instance.Status[4].Qty}}</a></u></td>	
+								<td style="text-align:left"><u><a href="invdet.html" ng-click="gototransactions(transaction.instance.Facility_Name,transaction.instance.Item_ID,transaction.instance.Status[2].Status)"><b>{{transaction.instance.Status[2].Qty}}</a></u></td>
+								<td style="text-align:left"><u><a href="invdet.html" ng-click="gototransactions(transaction.instance.Facility_Name,transaction.instance.Item_ID,transaction.instance.Status[6].Status)"><b>{{transaction.instance.Status[6].Qty}}</a></u></td>
+							</tr>
+					</tbody>
+				</table>
+				</div>
+				<div>
+    <a id="btnExport"><span class="order-btn">Export to Excel</span></a>
+  </div>
+				</div>
+</body>
+</html>

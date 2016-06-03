@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html ng-app='MyApp'>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+
+<link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="/stylesheets/style3.css">
+<link rel="stylesheet" href="/stylesheets/style2.css">
+<link rel="stylesheet" href="/stylesheets/nav.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+   <script src="js/jquery/jquery.min.js"></script>
+   <script src="js/jquery/jquery-1.7.1.js"></script>
+   <script src="js/jquery/jquery-ui.js"></script>
+ <!--  <script src="js/massautocomplete.js"></script>-->
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="js/bootstrap/bootstrap.min.js" ></script>
+<style>
+  
+  .show-grid [class^=col-] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #eee;
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid #ddd;
+    border: 1px solid rgba(86,61,124,.2);
+
+
+}
+	
+</style> 
+
+    <script src='js/angular/angular.js'></script>
+    <script src='js/angular/angular-route.js'></script>
+    <script src='js/angular/angular-resource.min.js'></script>
+    <script src='js/angular/angular-cookies.min.js'></script>
+    <script src='js/angular/angular-sanitize.js'></script>
+    <script src='bower_components/d3/d3.js'></script>
+    <script src='bower_components/nvd3/nv.d3.js'></script>
+    <script src='bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js'></script>
+	  <script src='bower_components/angular-nvd3-master/dist/angular-nvd3.js'></script>
+     <script src='bower_components/highcharts-ng-master/dist/highcharts-ng.js'></script>
+		<script src='bower_components/highcharts-ng-master/dist/highcharts.js'></script>
+		<script src='http://code.highcharts.com/highcharts-3d.js'></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/HomeController.js"></script>
+    <script src="js/angular/angular-animate.js"></script>
+    <script src="js/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+
+<script src='bower_components/angular-socket-io/socket.js'></script>
+<!--script src="bower_components/nvd3/angularjs-nvd3-directives.js"></script>
+<script src="../../bower_components/nvd3/components/d3/d3.js"></script>
+<script src="../../bower_components/nvd3/nvd3/nv.d3.js"></script-->
+</head>
+<body ng-controller="SalesOrderController" >
+
+	<div class="col-md-10">
+		<fieldset class="fldset-class">
+		<legend class="legend-class">Search Criteria</legend>
+	
+		<div>
+			
+				<div tooltip="{{(facilityname)?'Facility Name' : ''}}" tooltip-append-to-body = "true"   class="tooltip.top"> 
+					<input id="facility_name" class="form-control" placeholder="Facitily Name" ng-keyup="complete1()" 
+						ng-model ="facilityname" autofocus/>
+				</div>
+				<div tooltip="{{(orderid)?'Order_ID' : ''}}" tooltip-append-to-body = "true" class="tooltip.top"> 
+					<input id="order_id" class="form-control" placeholder="Order ID" ng-keyup="complete1()" 
+					ng-model ="orderid"
+					autofocus/>
+				</div>
+				<div tooltip="{{(custrefnum)?'Customer Order Ref' : ''}}" tooltip-append-to-body = "true" >
+					<input id="cust_ref_num" class="form-control" placeholder ="Customer Order Ref" ng-keyup="complete2()" 
+					ng-model ="custrefnum"/>
+				</div>
+				<div  tooltip="{{(customer_id)?'Customer ID' : ''}}" tooltip-append-to-body = "true" > <input id="customer_id" class="form-control" placeholder="Customer ID" ng-keyup="complete3()" 
+					ng-model ="customer_id"/>
+				</div>
+				<div  tooltip="{{(data1.singleSelect)?'Order Status' : ''}}" tooltip-append-to-body = "true" > 
+					<select class="form-control" name="singleSelect1" ng-model="data1.singleSelect" >
+						 <option style="display: " value=""> Select Order Status </option>
+			      		 <option ng-repeat="option1 in data1.availableOrder" value="{{option1.id}}">{{option1.name}}</option>
+			   		 </select>	
+				</div>
+			
+		
+			
+				<div tooltip="{{(item)?'Item ID' : ''}}" tooltip-append-to-body = "true" >
+				<input id="item_status" class="form-control" placeholder="Item ID" ng-keyup="complete2()" 
+					ng-model ="item"
+					/>
+				</div>
+				
+				<div   tooltip="{{(data2.singleSelect2)?'Filter Options':''}}" tooltip-append-to-body = "true" > 
+				<select class="form-control" name="singleSelect2" ng-model="data2.singleSelect2"
+				ng-options="option2.id as option2.name for option2 in data2.availableOptions" ng-change = "reset()" >
+				<option  value="">Select Filter Option</option> 
+				<option ng-repeat="option2 in data2.availableOptions" value="{{option2.id}}"  ng-change="getwarehouseorders(null)">{{option2.name}}</option> 
+				</select>
+               
+				</div>
+
+				<div  tooltip="{{(filter_Value)?'Filter Value':''}}" tooltip-append-to-body = "true" >
+
+				<input type="text" class="form-control" id="item_status" placeholder="Value" 
+				ng-model ="filter_Value" ng-show="itemStatusShow('alphanumeric')" 
+				ng-disabled="data2.singleSelect2 == null"/>
+				</div>
+				<div>
+				<select class="form-control" id="item_status" placeholder="Enter Yes or No"
+				ng-model ="filter_Value" ng-show="itemStatusShow('yesno')"
+				ng-disabled="data2.singleSelect2 == null" ng-options="op.id as op.name for op in data3.selectoptions" >
+				<option value="">Select YES or NO</option>
+			
+				</select>
+				</div>
+				<div
+				 class="input-group" tooltip="{{(dt)?'From Date':''}}" tooltip-append-to-body = "true" ng-show="itemStatusShow('date')">
+				<input type="text" class="form-control" datepicker-popup="{{format}}" container="body" ng-model="dt" is-open="opened1" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" 
+				placeholder ="From Date"/> 
+				<span class="input-group-btn">
+				<button type="button" class="btn btn-default" ng-click="open1($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+				</span>
+				
+
+				</div>
+
+				<div  tooltip="{{(dt2)?'From Date':''}}" tooltip-append-to-body = "true" ng-show="itemStatusShow('date')"   
+				 class="input-group" tooltip="{{(dt2)?'To Date':''}}" tooltip-append-to-body = "true" ng-show="itemStatusShow('date')">
+				<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt2" is-open="opened2" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions"  date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" 
+				placeholder ="To Date"/> 
+				<span class="input-group-btn">
+				<button type="button" class="btn btn-default" ng-click="open2($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+				</span>
+			
+      
+				</div>
+			
+				<div  > 
+           
+			<!--	<button class="btn btn-secondary" type="submit" ng-click ="getwarehouseorders(null)">Go</button> -->
+				<a href="sodata.html"><span style="margin-top:5%;"class="order-btn-alert" ng-click = "getwarehouseorders(null)" >Go</span>
+				</div>
+			
+				
+					
+							
+		</div>
+		<div ng-show="salesOrderFilterFormEmpty" class="alert alert-danger alert-dismissible" role="alert">
+<!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+<p>Please enter filter values</p>
+</div>
+		</fieldset>
+		</div>
+		
+	</body>
+</html>	

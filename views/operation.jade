@@ -1,0 +1,56 @@
+doctype html
+html(lang='en', ng-app='MyApp')
+head
+       
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+       
+    link(rel='stylesheet', href='../stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='../stylesheets/style.css')
+    link(rel='stylesheet', href='../stylesheets/style3.css')
+    link(rel='stylesheet', href='../stylesheets/nav.css')
+    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+        
+    script(src='../js/jquery/jquery.min.js')
+    // Latest compiled and minified JavaScript
+    script(src='../bootstrap/bootstrap.min.js')
+    script(src='../js/angular/angular.js')
+         
+    script(src='../js/angular/angular-route.js')
+         
+    script(src='../js/angular/angular-resource.min.js')
+         
+    script(src='../js/angular/angular-cookies.min.js')
+         
+    script(src='../js/angular/angular-sanitize.js')
+         
+    script(src='../bower_components/d3/d3.js')
+         
+    script(src='../bower_components/nvd3/nv.d3.js')
+         
+    script(src='../bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js')
+    script(src='bower_components/highcharts-ng-master/dist/highcharts-ng.js')
+    script(src='bower_components/highcharts-ng-master/dist/highcharts.js')
+    script(src='http://code.highcharts.com/highcharts-3d.js')
+    script(src='../bower_components/angular-nvd3-master/dist/angular-nvd3.js')
+    script(src='../js/app.js')
+    script(src='../js/services.js')
+    script(src='../js/directives.js')
+    script(src='../js/controllers.js')
+    script(src='../js/HomeController.js')
+    script(src='../js/angular/angular-animate.js')
+    script(src='../js/bootstrap/ui-bootstrap-tpls-0.12.0.js')
+    script(src='../bower_components/angular-socket-io/socket.js')
+    body(ng-controller='MainController')
+    .container-fluid
+      .row
+        .col-md-12
+          fieldset.fldset-class-mob
+            legend.legend-class Operations Visibility
+             
+            div
+                a(href="search.html")
+                    span.order-btn-mob Search
+                a(href="db.html")
+                    span.order-btn-mob Dashboard
+                a(href="alertsmob.html")
+                    span.order-btn-mob Alerts

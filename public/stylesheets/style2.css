@@ -1,0 +1,99 @@
+
+.newclass {
+   width : 400px;
+    float: left;
+
+}
+
+
+/*.carousel-indicators{
+
+margin-bottom: -3% !important;
+}
+
+
+.carousel-indicators .active{
+  border: 1px solid #3c763d !important;
+  background-color: #a94442 !important;
+  position: static !important;
+  bottom: 0px !important;
+}
+
+.carousel-indicators li
+{
+border: 1px solid #3c763d !important;
+position: static !important;
+bottom: 0px !important;
+ 
+} */
+
+.carousel-indicators{
+
+margin-bottom: -3% !important;
+}
+
+.nvd3 .nv-background {
+    fill: #1a242f !important;
+    fill-opacity: 0.0 !important;
+	
+}
+.carousel-indicators .active{
+  border: 1px solid #080808 !important;
+  background-color: midnightblue !important;
+  position: static !important;
+  bottom: 0px !important;
+}
+
+.carousel-indicators li
+{
+border: 1px solid #080808 !important;
+position: static !important;
+bottom: 0px !important;
+ 
+}
+.carousel-control{
+
+background-image: linear-gradient(to right,rgba(166, 32, 32, 0.0001) 0,#FFFFFF 100%) !important;
+color: #080808 !important;
+height: 300px !important;
+width:25px !important;
+}
+
+
+
+
+.selectclass {
+
+height: 200px !important;
+width: 300px !important;
+
+border-color: #42A948;
+font-weight: bold !important;
+    font-family : Georgia,Utopia,Charter,serif;
+}
+
+.one
+{
+    max-height:250px;
+    max-width:1500px;
+    overflow-x:scroll;
+    overflow-y:scroll;
+}
+
+
+.buttondropdown {
+	margin:10px;
+    height: 20px;
+width: 30px;
+color: #42A948;
+    font-family : Georgia,Utopia,Charter,serif;
+}
+
+.slides_control {
+  position:absolute;
+  width: 1000px;
+  height: 325px;
+  
+  top:5px;
+ 
+}

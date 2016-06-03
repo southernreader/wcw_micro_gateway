@@ -1,0 +1,77 @@
+doctype html
+html(lang='en', ng-app='MyApp')
+	head
+		title Login
+		script(src='js/jquery/jquery.min.js')
+		script(src='js/angular/angular.js')
+		script(src='js/angular/angular-route.js')
+		script(src='js/angular/angular-resource.min.js')
+		script(src='js/angular/angular-cookies.min.js')
+		script(src='js/angular/angular-sanitize.js')
+		script(src='bower_components/d3/d3.js')
+		script(src='bower_components/nvd3/nv.d3.js')
+		script(src='bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js')
+		script(src='bower_components/angular-nvd3-master/dist/angular-nvd3.js')
+		script(src='js/bootstrap/bootstrap.min.js')
+		script(src='js/jquery/jquery-1.7.1.js')
+		script(src='js/jquery/jquery-ui.js')
+		script(src='js/massautocomplete.js')
+		script(src='js/app.js')
+		script(src='js/services.js')
+		script(src='js/directives.js')
+		script(src='js/controllers.js')
+		script(src='js/HomeController.js')
+		script(src='js/angular/angular-animate.js')
+		script(src='js/bootstrap/ui-bootstrap-tpls-0.12.0.js')
+		script(src='bower_components/nvd3/angularjs-nvd3-directives.js')
+		script(src='../../bower_components/nvd3/components/d3/d3.js')
+		script(src='../../bower_components/nvd3/nvd3/nv.d3.js')
+		script(src='bower_components/highcharts-ng-master/dist/highcharts-ng.js')
+		script(src='bower_components/highcharts-ng-master/dist/highcharts.js')
+		script(src='http://code.highcharts.com/highcharts-3d.js')
+		script(src='bower_components/angular-socket-io/socket.js')
+		script(src='js/jquery/jquery.btechco.excelexport.js')
+		script(src='js/jquery/jquery.base64.js')				
+		link(rel='stylesheet', href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+		link(rel='stylesheet', href='http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css')
+		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+		link(rel='stylesheet', href='bower_components/nvd3/nv.d3.css')
+		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css')
+
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/style3.css')
+		link(rel='stylesheet', href='/stylesheets/style2.css')
+		link(rel='stylesheet', href='/stylesheets/nav.css')
+
+		
+		link(rel='images', href='/images/coming.png')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+		script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.js')
+		script(src='//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+		script(src='js/logincontroller.js')
+		link(rel='stylesheet', href='/stylesheets/loginstyle.css')
+		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+	body
+	div
+		div.nav.navbar.top-menu
+				div.navbar-header-banner 
+					p.title-style-banner Connected Warehouse
+					img.logo(src='stylesheets/images/WCCB_Logo.png', alt='Smiley face', height='64', width='64')
+					
+			section.main.loginbackground
+				form.form-1(ng-submit="Login()" ng-Controller="LoginController", style="position:relative;")
+					img(src='stylesheets/images/warehouselogo.png', width='120', style='position:absolute;top:5px;left:-150px;')
+					p.field
+						input(type="text", name="login", placeholder="Username or email" ng-model="user.name")
+						i.glyphicon.glyphicon-user.icon-large
+					p.field
+						input(type="password", name="password", placeholder="Password" ng-model="user.password")
+						i.glyphicon.glyphicon-lock.icon-large
+					p.submit
+						button(type="submit", name="submit")
+							i.glyphicon.glyphicon-arrow-right.icon-large
+
+				p(style='text-align:center;margin-top: 100px;')
+					img(src='stylesheets/images/FOTL.png', width='180')
+					
+

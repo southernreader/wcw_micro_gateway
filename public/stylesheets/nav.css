@@ -1,0 +1,319 @@
+/*
+Default style for WP-PageNavi plugin
+http://wordpress.org/extend/plugins/wp-pagenavi/
+*/
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+/* left nav */
+.left-nav {
+	z-index: 1000;
+	-webkit-transition: all .25s ease-in-out;
+    -moz-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+     background: rgb(46,117,182);
+     height:100%;
+	/* opacity:0.8;*/
+}
+.left-nav .profile-image {
+	display: block;
+	width: 100%;
+}
+.left-nav .mobile-header {
+	display: none; /* show with JS */
+}
+.left-nav .mobile-nav-toggle {
+	color: #fff;
+	font-size: 1.2em;
+	padding: 10px 19px;
+}
+.left-nav .brand {
+	display: block;
+	text-align: center;
+}
+.site-nav ul {
+	list-style: none;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 1.5em; 
+/*	font-weight: bold;*/
+	padding: 0;
+	background-color:"black";
+}
+.site-nav ul li {
+	border-top: 0.5em solid #FFF;
+	height: 90px;
+	line-height: 90px;
+	text-align: center;
+}
+.menu ul li a {
+	position: relative;
+    display: block;
+    padding: 15px 5px 5px 25px;
+    line-height: 1.5em;
+    text-decoration: underline;
+    font-family: Georgia,Utopia,Charter,serif;
+    font-size: 30px;
+    background: rgb(46,117,182);
+}
+.site-nav ul li a:hover {
+/*	background: none; */
+}
+.site-nav ul li a .nav-icon {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 35px;
+	padding: 5px 0;
+	background: #F781BE;
+	text-align: center;
+}
+.site-nav ul li.tutorials a .nav-icon {
+	border-left: 2px solid #690;
+}
+.site-nav ul li.articles a .nav-icon {
+	border-left: 2px solid #099;
+}
+.site-nav ul li.life a .nav-icon {
+	border-left: 2px solid #c60;
+}
+.site-nav ul li.about a .nav-icon {
+	border-left: 2px solid #96c;
+}
+.site-nav ul li.contact a .nav-icon {
+	border-left: 2px solid #cc0;
+}
+.site-nav ul li.search a .nav-icon {
+	border-left: 2px solid #999;
+}
+.site-nav ul li a .arrow-icon {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	opacity: .5;
+}
+.site-nav ul li ul.drop-down {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 100%;
+	right: 0;
+	bottom: 0;
+	width: 200px;
+	background: rgba(0, 0, 0, .80);
+	font-weight: 300;
+	text-transform: none;
+	list-style: none;
+}
+.site-nav ul li:hover ul.drop-down {
+	display: block;
+}
+.site-nav ul li ul.drop-down li {
+	border-top: 2px solid rgba(255, 255, 255, .10);
+}
+.site-nav ul li ul.drop-down li:first-child {
+	border-top: none;
+}
+.site-nav ul li ul.drop-down li.list-title {
+	padding: 15px;
+	color: #fff;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.site-nav ul li.tutorials ul.drop-down li.list-title {
+	background: #690;
+}
+.site-nav ul li.articles ul.drop-down li.list-title {
+	background: #099;
+}
+.site-nav ul li.life ul.drop-down li.list-title {
+	background: #c60;
+}
+.site-nav ul li ul.drop-down li a {
+	padding: 15px;
+}
+.site-nav ul li ul.drop-down li a:hover {
+	background: #000;
+}
+
+.left-nav .search-container {
+	margin: 20px 10px;
+}
+.left-nav .search-container label {
+	vertical-align: top;
+}
+.left-nav .search-container input[type="search"] {
+	width: 85%;
+	height: 30px;
+	padding: 10px;
+	background: #fff;
+	font-size: .85em;
+	border: none;
+	border-radius: 0;
+	vertical-align: top;
+}
+.left-nav .search-container input[type="search"]:focus {
+	color: #000;
+	margin: 0;
+	outline: none;
+}
+.left-nav .search-container .btn,
+.left-nav .search-container input[type="submit"] {
+	display: inline-block;
+	vertical-align: top;
+	padding: 5px 9px 4px;
+	margin: 0;
+	background: #cf6;
+	color: #000;
+	cursor: pointer;
+	border: none;
+	border-radius: 0;
+}
+.left-nav .search-container .btn:hover,
+.left-nav .search-container input[type="submit"]:hover {
+	background: #690;
+	color: #cf6;
+}
+.navbar-title{
+font-weight : 16px;
+}
+/* 03: Content
+========================================================================================================== */
+#wrapper {
+	margin-left: 260px;
+	background: #fff;
+}
+/*
+.single #wrapper {
+	margin: 0 260px;
+}
+*/
+	
+.main {
+	min-height: 600px;
+	padding: 15px;
+}
+.main ul.standard-list {
+	list-style: square;
+	margin: 0 0 20px 18px;
+	font-size: .9em;
+	color: #333;
+}
+.main ul.standard-list li {
+	margin: 0 0 15px;
+}
+.main ol.steps {
+	font-size: .85em;
+	font-weight: bold;
+	margin: 0 0 20px 20px;
+	color: #333;
+}
+.main ol.steps li {
+	margin: 0 0 10px;
+}
+.main ul.points {
+	list-style: none;
+	margin: 0 0 20px;
+}
+.main ul.points li {
+	margin: 0 0 10px;
+}
+.main ul.points li strong {
+	color: #000;
+}
+
+.content {}
+.content img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+.content p.post-date {
+	display: inline-block;
+	margin: 0 20px 10px 0;
+}
+
+.home-hero {
+	width: 100%;
+	padding: 100px 0;
+	background: #690;
+}
+.home-hero h1 {
+	font-size: 3em;
+	font-weight: 300;
+	line-height: 1.3em;
+	text-align: center;
+	color: #fff;
+	margin: 0 0 30px;
+	text-shadow: 0 1px 1px #000;
+}
+.home-hero h1 span.name {
+	display: inline-block;
+	font-size: 2.5em;
+	text-transform: uppercase;
+	color: #cf6;
+	margin: 30px 0 0;
+}
+.home-hero h1 span.seo-title {
+	font-size: .89em;
+	font-weight: 700;
+	color: #fff;
+}
+.home-hero ul.sites-nav {
+	list-style: none;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 1em;
+	font-weight: 300;
+	text-align: center;
+	margin: 0;
+}
+.home-hero ul.sites-nav li {
+	display: inline-block;
+	margin: 0 5px 0 0;
+}
+.home-hero ul.sites-nav li a {
+	display: inline-block;
+	padding: 10px 20px;
+	color: #fff;
+	border: 2px solid #fff;
+	border-radius: 50px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+}
+.home-hero ul.sites-nav li a:hover {
+	color: #cf3;
+	border: 2px solid #cf3;
+	text-decoration: none;
+}
+
+.navbar-brand {
+	font-size: 32px  !important;
+	font-family : Georgia,Utopia,Charter,serif !important;
+	color:"white" !important;
+}
+.navbar-header{
+	float:none;
+	
+}
+.navbar-header-banner{
+	float:none;
+}
+.navbar-hearder a{
+	color:#FFF;
+}
+
+
+.navbar-header>div {
+	display: inline-block;
+	float: left;
+}
+
+.page-title {
+	text-align:left;
+	font-size: 1.5em;
+	color:#FFF;
+	font-weight:bold;
+	margin-top:15px;
+	margin-left:40px;
+	display:inline-block;
+
+	
+}

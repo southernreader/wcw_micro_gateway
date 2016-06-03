@@ -1,0 +1,49 @@
+doctype html
+html(lang='en', ng-app='MyApp')
+	head
+		title Post Trade Services Portal
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+		script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.js')
+		script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.js')
+		script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-resource.min.js')
+		script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-cookies.min.js')
+		script(src='bower_components/d3/d3.js')
+		script(src='bower_components/nvd3/nv.d3.js')
+		script(src='bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js')
+		script(src='//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+		script(src='js/app1.js')
+		script(src='js/services1.js')
+		script(src='js/directives1.js')
+		script(src='js/controllers1.js')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/style1.css')
+		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+		link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css')
+		link(rel='stylesheet', href='bower_components/nvd3/nv.d3.css')
+	body(ng-controller='AppController')
+		div.nav.navbar.top-menu
+			div.navbar-header
+				button#nav-toggle.navbar-toggle(type='button', data-toggle='collapse', data-target='#main-nav')
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand.scroll-top(href='#') Demo
+			div#main-nav.collapse.navbar-collapse
+				ul.nav.navbar-nav
+					li
+						a.scroll-link(href='#', data-id='africa') Home
+					li
+						a.scroll-link(href='#', data-id='antarctica') Business
+					li
+						a.scroll-link(href='#', data-id='north-america') Connect
+					li
+						a.scroll-link(href='#', data-id='south-america') Admin Rights
+					li
+						a.scroll-link(href='#', data-id='south-america', ng-click='Logout()') Logout&nbsp &nbsp
+							span.i.glyphicon.glyphicon-log-out
+		div(ng-view='')
+			
+			
+					
+

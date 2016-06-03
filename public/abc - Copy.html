@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html ng-app='MyApp'>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+
+
+    <script src="js/jquery/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="js/bootstrap/bootstrap.min.js" ></script>
+<style>
+  
+  .show-grid [class^=col-] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #eee;
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid #ddd;
+    border: 1px solid rgba(86,61,124,.2);
+
+
+}
+</style> 
+
+    <script src='js/angular/angular.js'></script>
+    <script src='js/angular/angular-route.js'></script>
+    <script src='js/angular/angular-resource.min.js'></script>
+    <script src='js/angular/angular-cookies.min.js'></script>
+    <script src='js/angular/angular-sanitize.js'></script>
+    <script src='bower_components/d3/d3.js'></script>
+    <script src='bower_components/nvd3/nv.d3.js'></script>
+    <script src='bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js'></script>
+
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/HomeController.js"></script>
+<script src="js/angular/angular-animate.js"></script>
+<script src="js/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+<script src='bower_components/angular-socket-io/socket.js'></script>
+<!--script src="bower_components/nvd3/angularjs-nvd3-directives.js"></script>
+<script src="../../bower_components/nvd3/components/d3/d3.js"></script>
+<script src="../../bower_components/nvd3/nvd3/nv.d3.js"></script-->
+</head>
+<body ng-controller="DashboardController">
+  <div class="container show-grid">
+    
+<div class="row">
+ <!-- <div class="row">-->
+  <div class="col-xs-12 col-md-4 col-lg-4 newclass">
+  {{$scope.example13data}}
+  <nvd3-pie-chart
+            data="secondslides[1].label"
+            id=sfsf{{$index}}
+            showLabels="true"
+      x="xFunction()"
+            y="yFunction()"
+            donut="true"
+      noData="Data aint here"
+            donutRatio="0.25"
+            donutLabelsOutside="true" width="400" height="200"   
+      margin ="{left:30,top:0,botttom:0,right:100}"
+      > <svg width="100px" style="width: 400px; height: 200px;" ></svg></nvd3-pie-chart>
+  </div>
+  
+  <div class="col-xs-12 col-md-4 col-lg-4 newclass">
+        <nvd3-pie-chart
+      data="secondslides[$index + 1].label"
+            id=sfsfs{{$index}}
+            showLabels="true"
+            x="xFunction()"
+            y="yFunction()"
+            donut="true"
+            donutRatio="0.25"
+      noData="Data aint here"
+            donutLabelsOutside="true"   
+      margin ="{left:30,top:0,botttom:0,right:100}"
+      >
+               <svg  style="width: 400px; height: 200px; "></svg>  
+         
+         </nvd3-pie-chart>
+      </div>
+      
+  <div class="col-xs-12 col-md-4 col-lg-4 newclass"> <nvd3-pie-chart
+            data="secondslides[$index + 2].label"
+            id=labelsfsf{{$index}}
+            showLabels="true"
+            x="xFunction()"
+            y="yFunction()"
+            donut="true"
+      noData="Data aint here"
+            donutRatio="0.25"
+            donutLabelsOutside="true"   
+      margin ="{left:30,top:0,botttom:0,right:150}"
+      >
+               <svg  style="width: 400px; height: 200px; "></svg>  
+         
+        </nvd3-pie-chart>
+      </div>
+      
+  
+</div>
+    
+    
+    
+  </div>
+</body>
+</html>
