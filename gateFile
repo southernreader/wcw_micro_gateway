@@ -1,0 +1,8 @@
+{
+    "id": "wcw-gateway",
+    "application": "Warehouse-Application",
+    "accesspoint": "http://172.31.0.233:8080",
+    "containers": [
+        {"name": "node", "replicas": 1, "cpu": 1100, "memory": "500M", "port": 30062, "image": "snyamars007/node_gateway"}
+        ]
+}
