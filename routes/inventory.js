@@ -14,9 +14,10 @@ module.exports = function(app) {
 
 		request.get(options, function(error,response,body){
 			res.send(body);
+			next(body);
 		}).on("error", function(e){
 			//console.log("Got error: " + e.message);
-			next(e);
+			next(e);			
 		});
 
 	});		
@@ -36,7 +37,7 @@ module.exports = function(app) {
 			res.send(body);
 		}).on("error", function(e){
 			//console.log("Got error: " + e.message);
-			next(e);
+			next(e);			
 		});
 
 	});	
