@@ -1,6 +1,6 @@
 #!groovy
 node {
-   // Mark the code checkout 'stage'...
+   // Mark the code checkout 'stage'...test case 1 
    stage 'Git Checkout'
 
    // Get some code from a GitHub repository
