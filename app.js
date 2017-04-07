@@ -16,7 +16,7 @@ var express = require('express')
    
 var app = express();
 console.log(process.env.salesorder_service_port);
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || 3406);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(bodyParser.json()); // for parsing application/json
