@@ -63,9 +63,9 @@ app.use(function(err, req, res, next) {
   next(err);
 });
 
-log4js.configure('./config/log4js.json',{});
-app.set('logger',log4js);
-var logger = log4js.getLogger("app.js");
+//log4js.configure('./config/log4js.json',{});
+//app.set('logger',log4js);
+//var logger = log4js.getLogger("app.js");
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
