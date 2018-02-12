@@ -46,7 +46,7 @@ require('./routes/dashboard')(app);
 app.use(expressWinston.logger({
   transports: [
     new(winston.transports.File)({
-              filename:'/app/logs/gw.log',
+              filename:'./app/logs/gw.log',
        colorize: false,
       //level: 'error',
        json: false
